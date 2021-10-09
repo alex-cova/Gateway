@@ -1,4 +1,5 @@
 import Vapor
+import Queues
 
 // configures your application
 public func configure(_ app: Application) throws {
@@ -7,6 +8,9 @@ public func configure(_ app: Application) throws {
 
     // register routes
     
+    app.queues.schedule(EurekaJob())
+        .everySecond()
+        
     app.http.server.configuration.port = 8081
     
     try routes(app)

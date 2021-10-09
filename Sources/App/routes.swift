@@ -1,5 +1,7 @@
 import Vapor
 
+var map : [String:[String]] = [:]
+
 func routes(_ app: Application) throws {
    
     app.get("**") { req -> EventLoopFuture<ClientResponse> in
